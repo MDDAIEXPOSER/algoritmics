@@ -1,17 +1,17 @@
 def maxi_generate(n):
-    if n == 0:
+    if n == 0: #если длина равна 0, то смысла нет, возвращаем ноль
         return 0
-    else:
-        array = [0] * (n+1)
-        array[1] = 1
-        for i in range(n+1):
-            if i*2 <= n:
+    else: #иначе
+        array = [0] * (n+1) #генерируем список (массив) данных
+        array[1] = 1 #задаём индекс 
+        for i in range(n+1): #запускаем цикл по значениям 
+            if i*2 <= n: #условие, по которому генерируется следующий элемент
                 array[i*2] = array[i]
-            if i*2 + 1 <= n:
+            if i*2 + 1 <= n: #условие, по которому генерируется следующий элемент
                 array[i*2+1] = array[i] + array[i+1]
-        return max(array)
+        return max(array) #возвращение максимального элемента из сгенерированных 
 
 def main():
-    print(maxi_generate(int(input())))
+    print(maxi_generate(int(input()))) #задаём длину 
 if __name__ == "__main__":
   main()
